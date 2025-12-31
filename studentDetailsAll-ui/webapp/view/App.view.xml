@@ -1,0 +1,30 @@
+<mvc:View controllerName="studentDetailsAllui.studentDetailsAllui.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <App id="app">
+        <f:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Student Information"
+                columnsL="1"
+                columnsM="1">
+                <f:content>
+                    <Label text="ID" />
+                    <Input id="idInput" value="{context>/studentId}" placeholder="Enter Student ID" />
+
+                    <Label text="Name" />
+                    <Input id="nameInput" value="{context>/studentName}" placeholder="Enter Full Name" />
+
+                    <Label text="Branch" />
+                    <Input id="branchInput" value="{context>/branch}" placeholder="Enter Branch (e.g. CSE, ECE)" />
+
+                    <Label text="Branch Fee" />
+                    <Input id="feeInput" value="{context>/fee}" placeholder="Enter Branch Fee" />
+                    
+                    <Label text="" />
+                </f:content>
+            </f:SimpleForm>
+    </App>
+</mvc:View>

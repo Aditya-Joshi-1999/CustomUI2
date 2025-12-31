@@ -1,0 +1,32 @@
+<mvc:View controllerName="studentDetailsAllui.studentDetailsAllui.controller.MyTaskUI" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <App id="app1">
+        <pages>
+            <Page title="Add Branch Fees" showHeader="false" showFooter="false">
+                <content>
+                    <f:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Student Information"
+                columnsL="1"
+                columnsM="1">
+                <f:content>
+                    <Label text="ID" />
+                    <Input id="idInput1" placeholder="Enter Student ID" />
+
+                    <Label text="Name" />
+                    <Input id="nameInput1" placeholder="Enter Full Name" />
+
+                    <Label text="Branch" />
+                    <Input id="branchInput1" placeholder="Enter Branch (e.g. CSE, ECE)" />
+
+                    <Label text="Branch Fee" />
+                    <Input id="feeInput1" placeholder="Enter Branch Fee" />
+                    
+                    <Label text="" />
+                </f:content>
+            </f:SimpleForm>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
