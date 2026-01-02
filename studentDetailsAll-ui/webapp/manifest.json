@@ -137,11 +137,6 @@
         "inputs": {
             "$schema": "http://json-schema.org/draft-07/schema",
             "title": "input",
-            "required": [
-                "studentName",
-                "studentId",
-                "branch"
-            ],
             "type": "object",
             "properties": {
                 "studentName": {
@@ -169,11 +164,6 @@
         "outputs": {
             "$schema": "http://json-schema.org/draft-07/schema",
             "title": "output",
-             "required": [
-                "studentName",
-                "studentId",
-                "branch"
-            ],
             "type": "object",
             "properties": {
                 "studentName": {

@@ -31,6 +31,14 @@ sap.ui.define(
 
           this.setTaskModels();
 
+          this.getModel("context").attachRequestCompleted(() => {
+            const oContext = this.getModel("context").getData();
+
+            console.log("Received Student Data:");
+            console.log("Student Name:", oContext.studentName);
+            console.log("Student ID:", oContext.studentID);
+            console.log("Branch:", oContext.branch)
+          });
           this.getInboxAPI().addAction(
             {
               action: "APPROVE",
