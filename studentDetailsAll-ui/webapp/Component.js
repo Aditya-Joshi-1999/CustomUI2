@@ -41,7 +41,7 @@ sap.ui.define(
           });
           this.getInboxAPI().addAction(
             {
-              action: "APPROVE",
+              action: "approve",
               label: "Approve",
               type: "accept", // (Optional property) Define for positive appearance
             },
@@ -53,7 +53,7 @@ sap.ui.define(
 
           this.getInboxAPI().addAction(
             {
-              action: "REJECT",
+              action: "reject",
               label: "Reject",
               type: "reject", // (Optional property) Define for negative appearance
             },
