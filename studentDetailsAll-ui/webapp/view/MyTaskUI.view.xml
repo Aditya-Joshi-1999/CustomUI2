@@ -11,16 +11,16 @@
                 columnsM="1">
                 <f:content>
                     <Label text="ID" />
-                    <Input id="idInput1" placeholder="Enter Student ID" />
+                    <Input id="idInput1" value="{context>/studentId}" placeholder="Enter Student ID" />
 
                     <Label text="Name" />
-                    <Input id="nameInput1" placeholder="Enter Full Name" />
+                    <Input id="nameInput1" value="{context>/studentName}" placeholder="Enter Full Name" />
 
                     <Label text="Branch" />
-                    <Input id="branchInput1" placeholder="Enter Branch (e.g. CSE, ECE)" />
+                    <Input id="branchInput1" value="{context>/branch}" placeholder="Enter Branch (e.g. CSE, ECE)" />
 
                     <Label text="Branch Fee" />
-                    <Input id="feeInput1" placeholder="Enter Branch Fee" />
+                    <Input id="feeInput1" value="{context>/fee}" type="Number" placeholder="Enter Branch Fee" />
                     
                     <Label text="" />
                 </f:content>

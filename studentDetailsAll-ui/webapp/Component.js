@@ -31,34 +31,37 @@ sap.ui.define(
 
           this.setTaskModels();
 
+          const approveOutcomeId = "approve";
+          const rejectOutcomeId = "reject";
+
           this.getModel("context").attachRequestCompleted(() => {
             const oContext = this.getModel("context").getData();
 
             console.log("Received Student Data:");
             console.log("Student Name:", oContext.studentName);
-            console.log("Student ID:", oContext.studentID);
+            console.log("Student ID:", oContext.studentId);
             console.log("Branch:", oContext.branch)
           });
           this.getInboxAPI().addAction(
             {
-              action: "approve",
+              action: approveOutcomeId,
               label: "Approve",
               type: "accept", // (Optional property) Define for positive appearance
             },
             function () {
-              this.completeTask(true);
+              this.completeTask(true, approveOutcomeId);
             },
             this
           );
 
           this.getInboxAPI().addAction(
             {
-              action: "reject",
+              action: rejectOutcomeId,
               label: "Reject",
               type: "reject", // (Optional property) Define for negative appearance
             },
             function () {
-              this.completeTask(false);
+              this.completeTask(false, rejectOutcomeId);
             },
             this
           );
@@ -101,16 +104,31 @@ sap.ui.define(
           return startupParameters.inboxAPI;
         },
 
-        completeTask: function (approvalStatus) {
-          this.getModel("context").setProperty("/approved", approvalStatus);
-          this._patchTaskInstance();
+        completeTask: function (approvalStatus, outcomeId) {
+          const oContext = this.getModel("context").getData();
+
+          // Validate fee
+          if (oContext.fee === undefined || oContext.fee === "") {
+            sap.m.MessageBox.error("Please enter Branch Fee");
+            return;
+          }
+
+          const feeNumber = Number(oContext.fee);
+          if (isNaN(feeNumber)) {
+            sap.m.MessageBox.error("Branch Fee must be numeric");
+            return;
+          }
+
+          this.getModel("context").setProperty("/fee", feeNumber);
+          this._patchTaskInstance(outcomeId);
           this._refreshTaskList();
         },
 
-        _patchTaskInstance: function () {
+        _patchTaskInstance: function (outcomeId) {
           var data = {
             status: "COMPLETED",
             context: this.getModel("context").getData(),
+            decision: outcomeId
           };
 
           jQuery.ajax({

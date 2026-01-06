@@ -21,7 +21,7 @@
                     <Input id="branchInput" value="{context>/branch}" placeholder="Enter Branch (e.g. CSE, ECE)" />
 
                     <Label text="Branch Fee" />
-                    <Input id="feeInput" value="{context>/fee}" placeholder="Enter Branch Fee" />
+                    <Input id="feeInput" value="{context>/fee}" type="Number" placeholder="Enter Branch Fee" />
                     
                     <Label text="" />
                 </f:content>
